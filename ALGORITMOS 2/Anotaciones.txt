@@ -1,0 +1,63 @@
+Con el log y el n2 lo que nos esta diciendo es que es una funcion polinomica.
+
+TEOREMA MAESTRO, version 2:
+
+Para determinados valores de a b c no voy a estar cubriendo todos los casos, algunos
+casos escapan al teorema.
+
+Thomas H.Cormen Introduction to Algorithms es el toeroma mas general, el de Alfred es el mas acotada
+y el otro libro es donde estan las funciones suaves.
+
+Practica 4)
+
+- Ejercicio 1
+
+1. Muestre utilizando el m ́etodo de sustituci ́on que la soluci ́on de la recurrencia
+
+T(n) = T((piso)bn/2c(piso)) + 1
+
+es O(lg n)
+
+Supongo que existen constantes c perteneciente N T(n) <= c lg n para n > n0
+supongo que T((piso)n/2(piso)) <= c lg (piso)n/2(piso)
+
+Caso SUSTITUCION, SUPONGO QUE LA EXPRESION ES VALIDA PARA CUALQUIER VALOR MENOR A N y luego pruebo para N (n/2) es menor a N
+
+T(n) = T((piso)n/2(piso) + 1 y esto va a ser <= c lg (piso)n/2(piso) + 1 y esto va a
+ser <= que c lg n/2 + 1 = c(lg n - lg 2) + 1 = c(lg n-1) + 1 =
+c lg n - c + 1 , entonces aca sucede que si elijo cualquier C >= 1, el resultado es <=
+que c lg n (ACA ES A DONDE QUIERO LLEGAR) por la premisa inicial.
+
+entonces T(n) <= c lg n
+
+Tengo que ver los casos base que vale:
+n=1
+T(0) = k0 absurdo
+T(1) = T(|1/2|) + 1 = k0+1 <= c lg 1 = 0 entonces no vale, estoy acotando por algo menor a 0
+n=2
+T(1) = k1
+T(2) = T(1) + 1 = k1 + 1 = 2 <= c lg 2
+c=2, n0=2
+
+Demostre que para el caso inductivo y para el caso base.
+
+- Ejercicio 3
+
+Utilice un  ́arbol de recurrencia para encontrar una cota asint ́otica para la recurrencia
+
+T(n) = 4T(n/2) + cn
+
+donde c es una constante. Verifique que la cota encontrada es correcta.
+
+T(n) = 4 T(n/2) + n
+     = 4(4 T(n/2a la 2) + n/2) + n
+     = 16 T(n/2a la 2) + 4 n/2 + n
+     = 16 T(n/2a la 2) + 2 n + n
+     = 16 (4 T(n/2a la 3) + n/2 a la 2) + 2 n + n
+     = 4 al 3 T(n/2a la 3) + 4 n + 2 n + n
+     ...k veces
+     = 4 a la k T(n/2a la k)+ n(2 a la (k-1)) +...+ 2 a la 2 + 2 a la 2 + 2 a la 0)
+     n/2 a la k = 1  => n = 2 a la k => lg en base 2 n = k
+    = 4 al lg en base 2 de n por T(1) + n sum..{i=0} lg n-1 de 2 a la i
+     <4 elevado al lg en base 2 de n por T(1) = n a la lg en base 2 de 4 = n al 2>
+    = n al 2 por T(1) + n sum..{i=0} lg n-1 de 2 a la i

@@ -1,0 +1,40 @@
+Consulta algoritmos antes del parcial:
+
+listas enlazadas persistentes, tiene un costo de tiempo. Nosotros como implementar, no implementamos pero si se produce.
+Donde veo que se esta haciendo sharing?
+ejemplo: la funcion de concatenacion => lista vacia -> concatenar con la lista vacia = devuelve lista ys
+(x:xs)++ys = x:(xs++ys) esos dos puntos indican que se va generando la copia. y ys va a compartir los elementos con xs por eso sharing
+
+constructores de una lista = : (cons) y [] (que seria la lista vacia)
+
+constructores en arboles = Hoja y Nodo. El esfuerzo en nodo se haria, porque ahi estaria haciendo la copia.
+En completo usamos let que me proporciona una definicion local lo que me permite referenciar tanto de lado izquierdo como derecho de la definicion
+
+arbol balanceado consulta:
+
+x 3
+x x x --> asi sucede en arbol con elementos impar
+  x
+x   x
+
+x x x x --> tratamos de balancear arbol con elementos par
+    x
+  x   x 
+ x
+
+este arbol esta balanceado.
+Cuando sea impar puedo trabajar como el completo, cuando es par tenemos que ver como hacerlo para que quede mas de un lado que del otro.
+-- una forma mas compacta de escribir el arbol balanceado es utilizando una tecnica llamada tupplin
+-- seria de la siguiente forma = balanceado x n | (odd n) = let t = balanceado x (div (n-1) 2)  -- esto suponiendo que n es impar
+                                                                in N t x t
+                                                | otherwise = let m = div (n-1) 2
+                                                                (tl,tr) = (balanceado x m, balanceado x (m+1))                                 
+                                                                 in N tl x 
+
+
+-- Porque es importante que en arbol RED BLACK TREE la altura sea LOG N. Eso quiere decir que si yo tengo un arbol de altura log N, es balanceado. N es la cantidad de elementos.
+-- RED BLACK TREE NO LO DEMOSTRAMOS
+-- el INS es lo que inserta el x en el tree, no el insert
+-- make black convierte en negro el nodo raiz
+
+HACE EL EXAMEN PENSANDO EN 4 ESCENARIOS. DIEZ - MEDIO - REGULAR - APROBADO

@@ -1,0 +1,1 @@
+indMin (N x a b) = x
